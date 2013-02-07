@@ -1,0 +1,53 @@
+{
+    "name": "voronenko/yii-stub",
+    "description": "Yii Application stub",
+    "keywords": ["yii", "web", "application", "boilerplate"],
+    "homepage": "",
+    "type": "library",
+    "license": "",
+    "authors": [
+    {
+        "name": "Vyacheslav",
+        "homepage": "http://www.voronenko.info"
+    }
+    ],
+    "repositories": [
+         {
+            "type": "git",
+            "url": "https://github.com/Voronenko/yiinano.git",
+            "options": {
+                "ssh2": {
+                    "username": "voronenko",
+                    "pubkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa.pub",
+                    "privkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "lib-openssl":"*",
+         "voronenko/yiinano":"*"
+    },
+    "require-dev": {
+        "twitter/bootstrap": "*"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "config": "./"
+        }
+    },
+    "scripts": {
+        "pre-install-cmd": "config\\ComposerCallback::preInstall",
+        "post-install-cmd": "config\\ComposerCallback::postInstall",
+        "pre-update-cmd": "config\\ComposerCallback::preUpdate",
+        "post-update-cmd": "config\\ComposerCallback::postUpdate",
+        "post-package-install": [
+        "config\\ComposerCallback::postPackageInstall"
+        ],
+        "post-package-update": [
+        "config\\ComposerCallback::postPackageUpdate"
+        ]
+    }
+}
