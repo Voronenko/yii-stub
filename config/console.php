@@ -7,6 +7,34 @@
  * Define composer hooks by the following name schema: <vendor>/<packageName>-<action>
  *
  */
+
+
+function getModules(){
+$result = [];
+$modulesdir =  realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR);
+
+$a = new RegexIterator(
+    new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($modulesdir), RecursiveIteratorIterator::SELF_FIRST
+    ),
+    '/migrations*/',
+    RegexIterator::MATCH
+);
+
+foreach ($a as $v) {
+    $module = substr($v,strlen($modulesdir)+1,100);
+    $module = 'vendor.'.str_replace(DIRECTORY_SEPARATOR,'.',$module);
+    $parts = explode ('.', $module);
+    $modulename = array_reverse($parts)[1];
+    $result[$modulename]=$module; 
+}
+return $result;
+}
+
+
+
+
+
 $mainConfig = require('main.php');
 return array(
     'aliases' => array(
@@ -15,7 +43,7 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'My Console Application',
     'components' => $mainConfig['components'],
-    'modules' => $mainConfig['modules'],
+    'modules' => getModules(),
     'commandMap' => array(
         'database' => array(
             'class' => 'vendor.schmunk42.database-command.EDatabaseCommand',
