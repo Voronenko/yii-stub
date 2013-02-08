@@ -1,6 +1,6 @@
 {
     "name": "voronenko/yii-stub",
-    "description": "Yii Application stub",
+    "description": "Yii Application Foundation",
     "keywords": ["yii", "web", "application", "boilerplate"],
     "homepage": "",
     "type": "library",
@@ -12,6 +12,18 @@
     }
     ],
     "repositories": [
+
+         {
+            "type": "git",
+            "url": "https://github.com/Voronenko/migrate-command.git",
+            "options": {
+                "ssh2": {
+                    "username": "voronenko",
+                    "pubkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa.pub",
+                    "privkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa"
+                }
+            }
+        },
          {
             "type": "git",
             "url": "https://github.com/Voronenko/yiinano.git",
@@ -23,14 +35,16 @@
                 }
             }
         }
+
     ],
     "require": {
         "php": ">=5.3.2",
         "lib-openssl":"*",
-         "voronenko/yiinano":"*"
+         "voronenko/yiinano":"*",
+         "voronenko/migrate-command":"*",
+         "voronenko/yii-constants":"*"
     },
     "require-dev": {
-        "twitter/bootstrap": "*"
     },
     "minimum-stability": "dev",
     "autoload": {
