@@ -9,7 +9,7 @@
  */
 
 
-function getModules(){
+function getModuleMigrationPaths(){
 $result = [];
 $modulesdir =  realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR);
 
@@ -17,7 +17,7 @@ $a = new RegexIterator(
     new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($modulesdir), RecursiveIteratorIterator::SELF_FIRST
     ),
-    '/migrations*/',
+    '/migrations/',
     RegexIterator::MATCH
 );
 
@@ -26,6 +26,7 @@ foreach ($a as $v) {
     $module = 'vendor.'.str_replace(DIRECTORY_SEPARATOR,'.',$module);
     $parts = explode ('.', $module);
     $modulename = array_reverse($parts)[1];
+    $modulename = str_replace('yii-','',$modulename);
     $result[$modulename]=$module; 
 }
 return $result;
@@ -43,7 +44,7 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'My Console Application',
     'components' => $mainConfig['components'],
-    'modules' => getModules(),
+    'modules' => $mainConfig['modules'],
     'commandMap' => array(
         'database' => array(
             'class' => 'vendor.schmunk42.database-command.EDatabaseCommand',
@@ -58,9 +59,7 @@ return array(
             // the application migrations are in a pseudo-module called "core" by default
             'applicationModuleName' => 'core',
             // define all available modules (if you do not set this, modules will be set from yii app config)
-            'modulePaths' => array(
-            // ...
-            ),
+            'modulePaths' => getModuleMigrationPaths(),
             // you can customize the modules migrations subdirectory which is used when you are using yii module config
             'migrationSubPath' => 'migrations',
             // here you can configure which modules should be active, you can disable a module by adding its name to this array

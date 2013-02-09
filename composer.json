@@ -24,6 +24,20 @@
                 }
             }
         },
+
+         {
+            "type": "git",
+            "url": "https://github.com/Voronenko/yii_gii_migrate.git",
+            "options": {
+                "ssh2": {
+                    "username": "voronenko",
+                    "pubkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa.pub",
+                    "privkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa"
+                }
+            }
+        },
+
+
          {
             "type": "git",
             "url": "https://github.com/Voronenko/yiinano.git",
@@ -42,6 +56,7 @@
         "lib-openssl":"*",
          "voronenko/yiinano":"*",
          "voronenko/migrate-command":"*",
+         "voronenko/yii_gii_migrate":"*",
          "voronenko/yii-constants":"*"
     },
     "require-dev": {
