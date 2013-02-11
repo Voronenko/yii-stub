@@ -14,6 +14,11 @@
     "repositories": [
 
          {
+           "type": "composer",
+           "url": "http://www.voronenko.info/packages/"
+       	},
+
+         {
             "type": "git",
             "url": "https://github.com/Voronenko/migrate-command.git",
             "options": {
@@ -68,7 +73,9 @@
          "voronenko/yiinano":"*",
          "yiiext/migrate-command":"*",
          "voronenko/yii_gii_migrate":"*",
-         "voronenko/yii-constants":"*"
+         "voronenko/yii-constants":"*",
+         "crisu83/yii-rights": "0.*",
+         "mishamx/yii-user": "0.*",
     },
     "require-dev": {
         "twitter/bootstrap": "*"

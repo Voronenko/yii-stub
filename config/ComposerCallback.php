@@ -38,7 +38,7 @@ use Composer\Script\Event;
  *
  */
 
-defined('YII_PATH') or define('YII_PATH', dirname(__FILE__).'/../vendor/yiisoft/yii/framework');
+defined('YII_PATH') or define('YII_PATH', dirname(__FILE__).'/../vendor/voronenko/yiinano/framework');
 defined('CONSOLE_CONFIG') or define('CONSOLE_CONFIG', dirname(__FILE__).'/console.php');
 
 class ComposerCallback
