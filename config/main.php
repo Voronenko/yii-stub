@@ -28,7 +28,7 @@ $mainConfig = array(
     ),
     'aliases' => array(
         // composer
-        'vendor' => 'application.vendor',
+        'vendor' => 'webroot.vendor',
         'bootstrap' => 'application.vendor.crisu83.yii-bootstrap',
     ),
     'modules' => array(
@@ -39,6 +39,7 @@ $mainConfig = array(
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array('127.0.0.1', '::1'),
             'generatorPaths' => array(
+                'vendor.voronenko.yii_gii_migrate', // giix generators
             ),
         ),
     ),
@@ -56,9 +57,17 @@ $mainConfig = array(
             'baseUrl' => $baseUrl.'/themes',
         ),
 
+        'db'=>array(
+            'connectionString' => 'mysql:host=localhost;dbname=composer',
+            'emulatePrepare' => true,
+            'username' => 'root',
+            'password' => 'root',
+            'charset' => 'utf8',
+        ),
+
   'urlManager' => array( 
     'urlFormat' => 'path',
-    'showScriptName' => false,
+    'showScriptName'=>true,
     'rules' => array(              
                      '/' => '/view',
                      '//' => '/',

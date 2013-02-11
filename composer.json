@@ -37,10 +37,21 @@
             }
         },
 
-
          {
             "type": "git",
             "url": "https://github.com/Voronenko/yiinano.git",
+            "options": {
+                "ssh2": {
+                    "username": "voronenko",
+                    "pubkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa.pub",
+                    "privkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa"
+                }
+            }
+        },
+
+         {
+            "type": "git",
+            "url": "https://voronenko@bitbucket.org/voronenko/yii-constants.git",
             "options": {
                 "ssh2": {
                     "username": "voronenko",
@@ -55,11 +66,12 @@
         "php": ">=5.3.2",
         "lib-openssl":"*",
          "voronenko/yiinano":"*",
-         "voronenko/migrate-command":"*",
+         "yiiext/migrate-command":"*",
          "voronenko/yii_gii_migrate":"*",
          "voronenko/yii-constants":"*"
     },
     "require-dev": {
+        "twitter/bootstrap": "*"
     },
     "minimum-stability": "dev",
     "autoload": {

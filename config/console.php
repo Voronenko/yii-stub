@@ -22,6 +22,7 @@ $a = new RegexIterator(
 );
 
 foreach ($a as $v) {
+    if (!(is_dir($v))) continue;
     $module = substr($v,strlen($modulesdir)+1,100);
     $module = 'vendor.'.str_replace(DIRECTORY_SEPARATOR,'.',$module);
     $parts = explode ('.', $module);
