@@ -70,12 +70,13 @@
     "require": {
         "php": ">=5.3.2",
         "lib-openssl":"*",
+         "voronenko/yii-config":"*",
          "voronenko/yiinano":"*",
          "yiiext/migrate-command":"*",
          "voronenko/yii_gii_migrate":"*",
          "voronenko/yii-constants":"*",
-         "crisu83/yii-rights": "0.*",
-         "mishamx/yii-user": "0.*"
+         "crisu83/yii-rights": "*",
+         "crisu83/yii-auth": "*"
     },
     "require-dev": {
         "twitter/bootstrap": "*"
