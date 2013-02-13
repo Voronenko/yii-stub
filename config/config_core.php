@@ -20,17 +20,20 @@ $mainConfig =
     'preload' => array(
         'log',
     ),
+    'aliases' => array(
+        // composer
+        'vendor' => 'webroot.vendor',
+        'bootstrap' => 'vendor.crisu83.yii-bootstrap',
+    ),
+
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
         'application.components.*',
         'application.controllers.*',
         'zii.widgets.*',
-    ),
-    'aliases' => array(
-        // composer
-        'vendor' => 'webroot.vendor',
-        'bootstrap' => 'application.vendor.crisu83.yii-bootstrap',
+        'vendor.mishamx.yii-user.models.*', // User Model
+        'vendor.crisu83.yii-rights.components.*', // RWebUser
     ),
     'modules' => array(
         // uncomment the following to enable the Gii tool
@@ -64,6 +67,7 @@ $mainConfig =
 
         'db'=>array(
             'connectionString' => 'mysql:host=localhost;dbname=composer',
+            'tablePrefix' => 'tbl_',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => 'root',

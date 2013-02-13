@@ -76,7 +76,8 @@
          "voronenko/yii_gii_migrate":"*",
          "voronenko/yii-constants":"*",
          "crisu83/yii-rights": "*",
-         "crisu83/yii-auth": "*"
+         "mishamx/yii-user": "*",
+         "crisu83/yii-bootstrap": "*"
     },
     "require-dev": {
         "twitter/bootstrap": "*"
