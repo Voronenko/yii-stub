@@ -73,8 +73,8 @@ return array(
 #'templateFile' => 'system.cli.migration_template',
         ),
         // composer "hooks", will be executed after package install or update
-        'custommodulehookname' => array(
-            'class' => 'vendor.VENDORNAME.custommodule.commands.CustomCommand',
+        'config' => array(
+            'class' => 'vendor.voronenko.yii-config.commands.YiiConfigCommand',
         ),
     ),
     'params' => array(

@@ -2,7 +2,7 @@
 
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/vendor/voronenko/yiinano/framework/yii.php';
-$config=dirname(__FILE__).'/config/compiled_config.php';
+$config=dirname(__FILE__).'/config/main.php';
 
 // remove the following lines when in production mode
 defined('YII_DEBUG') or define('YII_DEBUG',true);
