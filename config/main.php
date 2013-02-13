@@ -25,7 +25,8 @@ if (isset($config_local)) {
 }
 
 if (isset($config_generated)) {
-  $config_generated = CMap::mergeArray($mainConfig, $config_generated);
+  $mainConfig = CMap::mergeArray($mainConfig, $config_generated);
 }
+
 
 return $mainConfig;

@@ -37,6 +37,7 @@ $mainConfig =
         'config' => array(
           'class' => 'vendor.voronenko.yii-config.YiiConfigModule'
         ) , 
+
         'gii' => array(
             'class' => 'system.gii.GiiModule',
             'password' => 'q',
@@ -69,6 +70,28 @@ $mainConfig =
             'charset' => 'utf8',
         ),
 
+
+'log'=>array(
+  'class'=>'CLogRouter',
+  'routes'=>array(
+    array(
+    'class'=>'CWebLogRoute',
+        //
+        // I include *trace* for the 
+        // sake of the example, you can include
+        // more levels separated by commas
+    'levels'=>'trace',
+        //
+        // I include *vardump* but you
+        // can include more separated by commas
+    'categories'=>'vardump',
+        //
+        // This is self-explanatory right?
+    'showInFireBug'=>false
+)
+)
+),
+
   'urlManager' => array( 
     'urlFormat' => 'path',
     'showScriptName'=>true,
@@ -76,6 +99,16 @@ $mainConfig =
                      '/' => '/view',
                      '//' => '/',
                      '/' => '/',
+                '<lang:[a-z]{2}>/pages/<view:\w+>' => 'site/page',
+                // Yii
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                // general language and route handling
+                '<lang:[a-z]{2}>' => '',
+                '<lang:[a-z]{2}>/<_c>' => '<_c>',
+                '<lang:[a-z]{2}>/<_c>/<_a>' => '<_c>/<_a>',
+                '<lang:[a-z]{2}>/<_m>/<_c>/<_a>' => '<_m>/<_c>/<_a>',
+
 
             ),
 
@@ -86,7 +119,7 @@ $mainConfig =
     'params' => array(
         // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
-        // global Phundament 3 parameters
+
     ),
 );
 
