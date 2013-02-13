@@ -11,7 +11,7 @@
 
 function getModuleMigrationPaths(){
 $result = array();
-$modulesdir =  realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR);
+$modulesdir =  realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor') . DIRECTORY_SEPARATOR;
 
 $a = new RegexIterator(
     new RecursiveIteratorIterator(
@@ -23,10 +23,11 @@ $a = new RegexIterator(
 
 foreach ($a as $v) {
     if (!(is_dir($v))) continue;
-    $module = substr($v,strlen($modulesdir)+1,100);
+    $module = substr($v,strlen($modulesdir),100);
     $module = 'vendor.'.str_replace(DIRECTORY_SEPARATOR,'.',$module);
     $parts = explode ('.', $module);
-    $modulename = array_reverse($parts)[1];
+    $reverseparts = array_reverse($parts);
+    $modulename = $reverseparts[1];
     $modulename = str_replace('yii-','',$modulename);
     $result[$modulename]=$module; 
 }
