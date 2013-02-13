@@ -10,7 +10,7 @@
 
 
 function getModuleMigrationPaths(){
-$result = [];
+$result = array();
 $modulesdir =  realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR);
 
 $a = new RegexIterator(
