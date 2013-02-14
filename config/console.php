@@ -79,9 +79,11 @@ return array(
     ),
     'params' => array(
         'composer.callbacks' => array(
-            // args for Yii command runner
+            // args for Yii command runner - two phase migrations to target one that modifies the config.
             'post-update' => array('yiic', 'migrate'),
+            'post-update-retry' => array('yiic', 'migrate'),
             'post-install' => array('yiic', 'migrate'),
+            'post-install-retry' => array('yiic', 'migrate'),
         ),
     )
 );

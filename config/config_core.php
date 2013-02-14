@@ -14,7 +14,7 @@ $mainConfig =
   array(
     'basePath' => $applicationDirectory."/protected",
     'name' => 'YII nano application',
-    'theme' => 'classic',  //uncomment to get theme support
+    'theme' => 'manage',  //uncomment to get theme support
     'language' => 'en', // default language, see also components.langHandler
     // preloading 'log' component
     'preload' => array(
@@ -123,6 +123,7 @@ $mainConfig =
     'params' => array(
         // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
+        'projectname' => 'YII Stub',
 
     ),
 );
