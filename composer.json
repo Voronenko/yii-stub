@@ -52,20 +52,7 @@
                     "privkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa"
                 }
             }
-        },
-
-         {
-            "type": "git",
-            "url": "https://voronenko@bitbucket.org/voronenko/yii-constants.git",
-            "options": {
-                "ssh2": {
-                    "username": "voronenko",
-                    "pubkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa.pub",
-                    "privkey_file": "D:\\aprojects\\openshift\\ssh\\libra_id_rsa"
-                }
-            }
         }
-
     ],
     "require": {
         "php": ">=5.3.2",
