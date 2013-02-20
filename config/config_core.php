@@ -30,16 +30,23 @@ $mainConfig =
     'import' => array(
         'application.models.*',
         'application.components.*',
+        'application.cmf.*',
+        'application.cmf.interfaces.*',
         'application.controllers.*',
         'zii.widgets.*',
         'vendor.mishamx.yii-user.models.*', // User Model
         'vendor.crisu83.yii-rights.components.*', // RWebUser
     ),
     'modules' => array(
-        // uncomment the following to enable the Gii tool
+
         'config' => array(
           'class' => 'vendor.voronenko.yii-config.YiiConfigModule'
-        ) , 
+        ),
+
+        'page' => array(
+            'class' => 'vendor.voronenko.yii-page.PageModule'
+        ),
+
 
         'gii' => array(
             'class' => 'system.gii.GiiModule',
@@ -53,6 +60,15 @@ $mainConfig =
     ),
     // application components
     'components' => array(
+
+        'IOC'=>array(
+            'class' => 'CMFIOC',
+            'Components' => array(
+                'IPageService'=>'PageServiceAR',
+                //'IPageService'=>'PageServiceDUMMY',
+            )
+        ),
+
 
         'errorHandler' => array(
             // use 'site/error' action to display errors

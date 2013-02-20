@@ -1,6 +1,10 @@
 <?php
 
-class SiteController extends Controller
+/**
+ * Note: YII stub application is based upon yii-rights module or it's fork.
+ * Make sure module is installed
+ */
+class SiteController extends RController
 {
 
     public $layout = '//layouts/main';
@@ -20,6 +24,13 @@ class SiteController extends Controller
 
 
     public function actionIndex()
+    {
+        /** @var $module AuthModule */
+        $this->render('index');
+    }
+
+
+    public function actionSomeOtherAction()
     {
         /** @var $module AuthModule */
         $this->render('index');
