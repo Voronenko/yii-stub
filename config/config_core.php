@@ -24,6 +24,9 @@ $mainConfig =
         // composer
         'vendor' => 'webroot.vendor',
         'bootstrap' => 'vendor.crisu83.yii-bootstrap',
+
+        'cmf.helper' => 'vendor.voronenko.yii_helper',
+        'cmf.editor' => 'vendor.voronenko.yii_helper.widgets.editortemplates'
     ),
 
     // autoloading model and component classes
@@ -135,6 +138,64 @@ $mainConfig =
 )
 ),
 
+        'clientScript' => array(
+            'packages' => array(
+                'site' => array(
+                    'depends' => array(
+                        'jquery',
+                        'jquery.tools',
+                        'knockout',
+                        'modernizr'
+                    ),
+                    'css' => array(
+                        'css/style_min.css'
+                    ),
+                    'js' => array(
+                    )
+                ),
+                'knockout' => array(
+                    'baseUrl' => 'http://ajax.aspnetcdn.com/ajax/knockout/',
+                    'js' => array('knockout-2.2.1.js')
+                ),
+                'modernizr' => array(
+                    'js' => array(
+                        'js/modernizr/modernizr.custom.87898.js'
+                    )
+                ),
+                'jquery.tools' => array(
+                    //'baseUrl' => 'http://cdn.jquerytools.org/1.2.7/full/',
+                    //'baseUrl' => 'http://jquerytools.flowplayer.netdna-cdn.com/1.2.6/all/',
+                    //'baseUrl' => 'http://jquerytools.flowplayer.netdna-cdn.com/1.2.6/all/',
+                    //'js' => array('jquery.tools.min.js')
+                    'js' => array('js/jquery.tools.min.js')
+                ),
+                'jquery' => array(
+                    'baseUrl' => '//ajax.googleapis.com/ajax/libs/jquery/',
+                    'js' => array(
+                        '1.8.2/jquery.min.js'
+                    )
+                ),
+
+                'jquery.ui' => array(
+                    'baseUrl' => 'http://code.jquery.com/ui/',
+                    'js' => array(
+                        '1.10.1/jquery-ui.js'
+                     ),
+                    'css' => array(
+                        '1.10.1/themes/base/jquery-ui.css'
+                    )
+                ),
+
+
+
+            ),
+            'scriptMap' => array(
+                'eliminatethisfile.js' => false,
+                'replacewithexternalcdn.js' => 'http://your.cdn.address/replacewithexternalcdn.js'
+            )
+        ),
+
+
   'urlManager' => array( 
     'urlFormat' => 'path',
     'showScriptName'=>true,
@@ -157,6 +218,9 @@ $mainConfig =
 
         )
     ),
+
+
+
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
     'params' => array(

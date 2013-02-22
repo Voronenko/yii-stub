@@ -14,7 +14,7 @@ class FSCacheSlot
     {
         try {
             $raw = $this->_fs->readString($this->key);
-        } catch (Exception $e) {
+        } catch (S3Exception $e) {
             Yii::log(
                 'Error load cache: ' . $e->getMessage(),
                 CLogger::LEVEL_ERROR

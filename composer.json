@@ -64,7 +64,8 @@
          "voronenko/yii-constants":"*",
          "crisu83/yii-rights": "*",
          "mishamx/yii-user": "*",
-         "crisu83/yii-bootstrap": "*"
+         "crisu83/yii-bootstrap": "*",
+         "blueimp/jquery-file-upload":"*"  
     },
     "require-dev": {
         "twitter/bootstrap": "*"
