@@ -1,5 +1,5 @@
 <?php
-class FSAssetManager extends CApplicationComponent
+class FSAssetManager extends CAssetManager
 {
     public $published = array();
     protected $_baseUrl = null;
@@ -25,6 +25,9 @@ class FSAssetManager extends CApplicationComponent
         if (array_key_exists($path, $this->published)) {
             return $this->getBaseUrl() . '/' . $this->published[$path];
         } else {
+            $result = parent::publish($path, $hashByName, $level, $forceCopy);
+            return $result;
+
             throw new Exception('path has not published:' . var_export($path, true));
         }
     }

@@ -19,7 +19,8 @@
                         <a href="<?php print Yii::app()->createUrl('user'); ?>">Users</a></li>
                       <li>
                           <a href="<?php print Yii::app()->createUrl('rights/authItem/roles'); ?>">Rights</a></li>
-                    <li><a href="#">Something else here</a></li>
+                      <li>
+                          <a href="<?php print Yii::app()->createUrl('page'); ?>">Pages</a></li>
                     <li class="divider"></li>
                     <li class="nav-header">Nav header</li>
                     <li><a href="#">Separated link</a></li>
