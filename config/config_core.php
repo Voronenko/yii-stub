@@ -119,6 +119,29 @@ $mainConfig =
            ),
 
 
+        'fileBrowser' => array(
+            'class' => 'vendor.voronenko.yii-page.components.filebrowser.FileBrowserComponent',
+            'tempDir' => 'application.runtime.temp',
+            'storages' => array(
+                'articleImages' => array(
+                    'kind' => 'image', // image, file
+                    // {ApplicationID}, {filename}, {field}, {extension}
+                    'pathTemplate' => 'article/{ArticleId}/{field}/image-{filename}.{extension}',
+                    'deleteFolder' => 'article/{ArticleId}',
+                    'preview' => 'thumb', // image, [thumb], true
+                    'thumbs' => array(
+                        'thumb' => array(
+                            'pathTemplate' =>
+                                'article/{ArticleId}/{field}/thumb-{filename}.jpg',
+                            // w,h,cut,fit,color
+                            'resize' => array(150, 100, true, true, 'FFF')
+                        )
+                    )
+                ),
+             )
+          ),
+
+
 
             'errorHandler' => array(
                 // use 'site/error' action to display errors

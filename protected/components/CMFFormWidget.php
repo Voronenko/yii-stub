@@ -185,7 +185,7 @@ class CMFFormWidget extends CWidget
         Yii::app()->clientScript->registerScript(
             'CMFForm.init',
             <<<JS
-            alert('CMF Form Init!');
+            // todo: custom code here
 JS
             ,
             CClientScript::POS_READY

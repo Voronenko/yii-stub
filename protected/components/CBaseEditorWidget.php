@@ -7,11 +7,7 @@
  * To change this template use File | Settings | File Templates.
  * @property CModel model
  */
-class CBaseEditorWidget extends CWidget
+class CBaseEditorWidget extends CInputWidget
 {
-    public $property;
-    public $model;
-    public $widgetName;
-    public $htmlOptions;
 
 }
