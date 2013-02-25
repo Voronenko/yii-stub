@@ -30,3 +30,13 @@ if (isset($config_generated)) {
 
 
 return $mainConfig;
+
+
+
+/*
+  Add phpdoc hints specific for your application.
+*/
+class CFakeWebApp extends CWebApplication
+{
+
+}

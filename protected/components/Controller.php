@@ -10,6 +10,13 @@ class Controller extends CController
      * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
      */
     public $layout='//layouts/_default';
+
+
+    public $pageWrapperCss = '';
+
+
+    public $lang = null;
+
     /**
      * @var array context menu items. This property will be assigned to {@link CMenu::items}.
      */
@@ -21,7 +28,7 @@ class Controller extends CController
      */
     public $breadcrumbs=array();
     /**
-     * @var alias of selected menu item. This property will be assigned to {@link CMenu::items}.
+     * @property $menuItem string alias of selected menu item. This property will be assigned to {@link CMenu::items}.
      */
     public $menuItem='';
 
@@ -31,6 +38,81 @@ class Controller extends CController
         {
             echo CActiveForm::validate($model);
             Yii::app()->end();
+        }
+    }
+
+    public $topMenuAction;
+
+
+    public function userIsGuest()
+    {
+        return Yii::app()->user->isGuest;
+    }
+
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+    public function getContentUrl()
+    {
+        return Yii::app()->params["ContentUrl"];
+    }
+
+    public function getFS()
+    {
+        return Yii::app()->fileSystem;
+    }
+
+    /**
+     * @param string $lang
+     * @return bool|string
+     */
+    private function isLangSupported($lang)
+    {
+        $lang = strtolower($lang);
+        if(in_array($lang, Yii::app()->params['languages']))
+            return $lang;
+        return false;
+    }
+    public function init()
+    {
+        parent::init();
+        $app = Yii::app();
+        $setSession = true;
+        //  set def lang
+        $lang = 'en';
+        if (!(
+            isset($_POST['_lang']) &&
+                ($lang = $this->isLangSupported($_POST['_lang']))
+        )) {
+            if ($lang = $app->user->getState('_lang')) {
+                $setSession = false;
+            } else {
+                $lang = substr(
+                    Yii::app()->getRequest()->getPreferredLanguage(),
+                    0,
+                    2
+                );
+                if(!($lang = $this->isLangSupported($lang)))
+                    $lang = 'en';
+            }
+        }
+        $app->language = $lang;
+        $this->lang = $lang;
+        if($setSession)
+            $app->user->setState('_lang', $lang);
+    }
+
+
+
+    public function disableWebLogRoutes()
+    {
+        foreach (Yii::app()->log->routes as $route) {
+            if ($route instanceof CWebLogRoute) {
+                $route->enabled = false;
+            }
         }
     }
 
