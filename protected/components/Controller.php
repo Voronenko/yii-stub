@@ -76,7 +76,7 @@ class Controller extends CController
             return $lang;
         return false;
     }
-    public function init()
+/*    public function init()
     {
         parent::init();
         $app = Yii::app();
@@ -103,7 +103,7 @@ class Controller extends CController
         $this->lang = $lang;
         if($setSession)
             $app->user->setState('_lang', $lang);
-    }
+    }*/
 
 
 
